@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#143b2b" />
+    <title>Visão geral · Orion CRM</title>
+    <link rel="stylesheet" href="shared/base.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <script src="shared/session.js" defer></script>
+    <script src="shared/crm.js" defer></script>
+    <script src="js/dashboard.js" defer></script>
+  </head>
+  <body class="is-locked dashboard-page" data-page="dashboard">
+    <aside class="sidebar">
+      <a class="brand" href="dashboard.html" aria-label="Orion CRM, início"
+        ><span class="brand-mark">o<span>✦</span></span
+        ><span>orion<span class="brand-sub">RELACIONAMENTO & NEGÓCIOS</span></span></a
+      >
+      <div class="workspace">
+        <span class="workspace-icon">O</span>
+        <div>Orion Tecnologia<small>Espaço comercial</small></div>
+        <span class="online-dot"></span>
+      </div>
+      <div class="nav-label">PRINCIPAL</div>
+      <nav aria-label="Menu principal">
+        <a href="dashboard.html" data-page="dashboard" class="active" aria-current="page"
+          ><span data-icon="dashboard"></span>Visão geral</a
+        >
+        <a href="clientes.html" data-page="clients"
+          ><span data-icon="users"></span>Clientes<span class="nav-count" id="client-count"></span
+        ></a>
+        <a href="negociacoes.html" data-page="deals"><span data-icon="chart"></span>Negociações</a>
+        <a href="produtos.html" data-page="products"><span data-icon="box"></span>Produtos</a>
+        <a href="atividades.html" data-page="tasks"><span data-icon="calendar"></span>Atividades</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <span data-icon="sprout"></span><strong>Boas conexões.<br />Novas possibilidades.</strong>
+          <p>Cultive cada oportunidade.</p>
+        </div>
+        <a href="sobre.html" class="about-link"><span data-icon="info"></span>Sobre o projeto</a>
+        <div class="profile">
+          <span class="avatar">D</span>
+          <div>Diovani<small>Projeto acadêmico · BCC</small></div>
+          <span class="profile-dot"></span>
+        </div>
+      </div>
+    </aside>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="breadcrumb">
+          Espaço comercial <span>/</span> <strong id="breadcrumb">Visão geral</strong>
+        </div>
+        <div class="header-right">
+          <span class="demo-tag"><i></i> Ambiente de demonstração</span
+          ><span class="avatar small">D</span
+          ><button id="logout" class="text-link" type="button">Sair ↗</button>
+        </div>
+      </header>
+      <main id="main" tabindex="-1">
+        <div class="page-heading">
+          <div>
+            <h1>Visão geral</h1>
+            <p>Um novo dia para cultivar bons negócios.</p>
+          </div>
+          <div class="heading-actions">
+            <span class="date-label" id="today-label"></span
+            ><button class="button primary" data-action="add" data-kind="deals">
+              <span data-icon="plus"></span>Nova negociação
+            </button>
+          </div>
+        </div>
+        <div id="page-content">
+          <section class="hero">
+            <div class="hero-copy">
+              <span class="eyebrow">TECNOLOGIA QUE APROXIMA</span>
+              <h2>Do primeiro contato<br />à <span>próxima colheita.</span></h2>
+              <p>
+                Seus clientes, oportunidades e próximos passos.<br />Tudo conectado em um só lugar.
+              </p>
+              <a href="negociacoes.html">Acompanhar negociações <span data-icon="arrow"></span></a>
+            </div>
+            <img
+              class="hero-image"
+              src="assets/crm/hunter.webp"
+              alt="Equipamento da linha Hunter Orion"
+            /><span class="hero-tag">LINHA HUNTER · ORION</span>
+          </section>
+          <section id="stats-list" class="stats" aria-label="Resumo comercial"></section>
+          <div class="dashboard-grid">
+            <div>
+              <section class="panel">
+                <div class="panel-head">
+                  <div>
+                    <h2>Funil de negociações</h2>
+                    <p>Cada etapa, uma conexão mais próxima.</p>
+                  </div>
+                  <a class="text-link" href="negociacoes.html"
+                    >Ver funil <span data-icon="arrow"></span
+                  ></a>
+                </div>
+                <div id="pipeline-list" class="pipeline"></div>
+              </section>
+              <section class="panel section-gap">
+                <div class="panel-head">
+                  <div>
+                    <h2>Clientes em destaque</h2>
+                    <p>O relacionamento é onde tudo começa.</p>
+                  </div>
+                  <a class="text-link" href="clientes.html"
+                    >Ver todos <span data-icon="arrow"></span
+                  ></a>
+                </div>
+                <div class="table-wrap">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>CLIENTE / PROPRIEDADE</th>
+                        <th>CULTURA</th>
+                        <th>STATUS</th>
+                      </tr>
+                    </thead>
+                    <tbody id="featured-clients"></tbody>
+                  </table>
+                  <span id="featured-empty"></span>
+                </div>
+              </section>
+            </div>
+            <div class="dashboard-right">
+              <section class="panel">
+                <div class="panel-head">
+                  <div>
+                    <h2>Próximas atividades</h2>
+                    <p id="pending-count"></p>
+                  </div>
+                  <a class="text-link" href="atividades.html" aria-label="Ver atividades"
+                    ><span data-icon="arrow"></span
+                  ></a>
+                </div>
+                <div id="upcoming-tasks"></div>
+                <div class="panel-bottom">
+                  <button class="text-link" data-action="add" data-kind="tasks">
+                    <span data-icon="plus"></span> Agendar atividade
+                  </button>
+                </div>
+              </section>
+              <section class="panel section-gap">
+                <div class="panel-head">
+                  <h2>Soluções Orion</h2>
+                  <a class="text-link" href="produtos.html"
+                    >Catálogo <span data-icon="arrow"></span
+                  ></a>
+                </div>
+                <div id="featured-products" class="mini-products"></div>
+              </section>
+              <div class="insight">
+                <span data-icon="sprout"></span>
+                <div>
+                  <strong>O próximo negócio começa com uma conversa.</strong>
+                  <p>Mantenha seus contatos em dia e acompanhe cada oportunidade.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <span>Orion CRM <span class="footer-dot">·</span> Conexões que dão resultado.</span
+        ><span
+          ><a href="sobre.html">Sobre o projeto acadêmico</a>
+          <span class="footer-dot">·</span> Dados fictícios</span
+        >
+      </footer>
+    </div>
+    <dialog id="modal">
+      <form id="editor">
+        <div class="modal-heading">
+          <div>
+            <span class="eyebrow">ORION CRM</span>
+            <h2 id="modal-title"></h2>
+          </div>
+          <button type="button" class="icon-button" id="close-modal" aria-label="Fechar">×</button>
+        </div>
+        <div id="form-fields"></div>
+        <div class="form-actions">
+          <button type="button" class="button secondary" id="cancel-modal">Cancelar</button
+          ><button class="button primary" type="submit">Salvar</button>
+        </div>
+      </form>
+    </dialog>
+    <div id="toast" class="toast" role="status"></div>
+  </body>
+</html>

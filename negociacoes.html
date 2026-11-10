@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#143b2b" />
+    <title>Negociações · Orion CRM</title>
+    <link rel="stylesheet" href="shared/base.css" />
+    <link rel="stylesheet" href="css/negociacoes.css" />
+    <script src="shared/session.js" defer></script>
+    <script src="shared/crm.js" defer></script>
+    <script src="js/negociacoes.js" defer></script>
+  </head>
+  <body class="is-locked deals-page" data-page="deals">
+    <aside class="sidebar">
+      <a class="brand" href="dashboard.html" aria-label="Orion CRM, início"
+        ><span class="brand-mark">o<span>✦</span></span
+        ><span>orion<span class="brand-sub">RELACIONAMENTO & NEGÓCIOS</span></span></a
+      >
+      <div class="workspace">
+        <span class="workspace-icon">O</span>
+        <div>Orion Tecnologia<small>Espaço comercial</small></div>
+        <span class="online-dot"></span>
+      </div>
+      <div class="nav-label">PRINCIPAL</div>
+      <nav aria-label="Menu principal">
+        <a href="dashboard.html" data-page="dashboard"
+          ><span data-icon="dashboard"></span>Visão geral</a
+        >
+        <a href="clientes.html" data-page="clients"
+          ><span data-icon="users"></span>Clientes<span class="nav-count" id="client-count"></span
+        ></a>
+        <a href="negociacoes.html" data-page="deals" class="active" aria-current="page"
+          ><span data-icon="chart"></span>Negociações</a
+        >
+        <a href="produtos.html" data-page="products"><span data-icon="box"></span>Produtos</a>
+        <a href="atividades.html" data-page="tasks"><span data-icon="calendar"></span>Atividades</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <span data-icon="sprout"></span><strong>Boas conexões.<br />Novas possibilidades.</strong>
+          <p>Cultive cada oportunidade.</p>
+        </div>
+        <a href="sobre.html" class="about-link"><span data-icon="info"></span>Sobre o projeto</a>
+        <div class="profile">
+          <span class="avatar">D</span>
+          <div>Diovani<small>Projeto acadêmico · BCC</small></div>
+          <span class="profile-dot"></span>
+        </div>
+      </div>
+    </aside>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="breadcrumb">
+          Espaço comercial <span>/</span> <strong id="breadcrumb">Negociações</strong>
+        </div>
+        <div class="header-right">
+          <span class="demo-tag"><i></i> Ambiente de demonstração</span
+          ><span class="avatar small">D</span
+          ><button id="logout" class="text-link" type="button">Sair ↗</button>
+        </div>
+      </header>
+      <main id="main" tabindex="-1">
+        <div class="page-heading">
+          <div>
+            <h1>Negociações</h1>
+            <p>Transforme boas conversas em novas oportunidades.</p>
+          </div>
+          <div class="heading-actions">
+            <button class="button primary" data-action="add" data-kind="deals">
+              <span data-icon="plus"></span>Nova negociação
+            </button>
+          </div>
+        </div>
+        <div id="page-content">
+          <div class="toolbar">
+            <label class="search"
+              ><span data-icon="search"></span
+              ><input
+                id="search"
+                type="search"
+                placeholder="Buscar cliente, propriedade ou produto…"
+                aria-label="Buscar cliente, propriedade ou produto…" /></label
+            ><select class="filter" id="filter" aria-label="Filtrar por status">
+              <option value="all">Todos os produtos</option>
+              <option value="target">Target</option>
+              <option value="hunter">Hunter</option>
+            </select>
+          </div>
+          <div class="kanban" id="deal-board"></div>
+          <div class="notice">
+            Os valores deste projeto são fictícios. Para mover uma negociação, selecione a etapa no
+            cartão. O resumo da página inicial é atualizado automaticamente.
+          </div>
+        </div>
+      </main>
+      <footer>
+        <span>Orion CRM <span class="footer-dot">·</span> Conexões que dão resultado.</span
+        ><span
+          ><a href="sobre.html">Sobre o projeto acadêmico</a>
+          <span class="footer-dot">·</span> Dados fictícios</span
+        >
+      </footer>
+    </div>
+    <dialog id="modal">
+      <form id="editor">
+        <div class="modal-heading">
+          <div>
+            <span class="eyebrow">ORION CRM</span>
+            <h2 id="modal-title"></h2>
+          </div>
+          <button type="button" class="icon-button" id="close-modal" aria-label="Fechar">×</button>
+        </div>
+        <div id="form-fields"></div>
+        <div class="form-actions">
+          <button type="button" class="button secondary" id="cancel-modal">Cancelar</button
+          ><button class="button primary" type="submit">Salvar</button>
+        </div>
+      </form>
+    </dialog>
+    <div id="toast" class="toast" role="status"></div>
+  </body>
+</html>

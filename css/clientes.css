@@ -1,0 +1,11 @@
+/* Estilos exclusivos: clientes. */
+/* Tabela da carteira de clientes. A rolagem preserva todas as colunas no celular. */
+.clients-page .table-wrap {
+  overflow-x: auto;
+}
+.clients-page table {
+  min-width: 760px;
+}
+.clients-page .client-cell {
+  min-width: 160px;
+}

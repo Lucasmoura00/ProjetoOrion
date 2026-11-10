@@ -1,0 +1,10 @@
+﻿node_modules/
+dist/
+.env
+.env.*
+!.env.example
+.publish-repo/
+*.log
+/assets/*
+!/assets/crm/
+!/assets/img orion.webp

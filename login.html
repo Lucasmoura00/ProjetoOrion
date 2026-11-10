@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#143b2b" />
+    <title>Entrar · Orion CRM</title>
+    <link rel="stylesheet" href="shared/base.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <script src="shared/session.js" defer></script>
+    <script src="js/login.js" defer></script>
+  </head>
+  <body class="login-page">
+    <section id="login-screen" class="login-screen" aria-label="Acesso ao Orion CRM">
+      <div class="login-story">
+        <div class="login-brand">orion<span>CRM · RELACIONAMENTO & NEGÓCIOS</span></div>
+        <div class="login-story-copy">
+          <span class="eyebrow">CULTIVE BOAS CONEXÕES</span>
+          <h1>
+            O próximo negócio<br />
+            começa <em>aqui.</em>
+          </h1>
+          <p>
+            Aproxime pessoas, acompanhe oportunidades e prepare o caminho para a próxima colheita.
+          </p>
+          <img src="assets/crm/hunter.webp" alt="Equipamento da linha Hunter Orion" />
+        </div>
+        <small>Tecnologia para o campo. Organização para seus negócios.</small>
+      </div>
+      <div class="login-area">
+        <div class="login-card">
+          <span class="eyebrow">BEM-VINDO AO ORION CRM</span>
+          <h2>Acesse seu espaço.</h2>
+          <p class="login-intro">Entre com suas credenciais para continuar.</p>
+          <form id="login-form">
+            <label class="field" for="login-email"
+              >E-mail<input
+                id="login-email"
+                name="email"
+                type="email"
+                autocomplete="username"
+                placeholder="seu@email.com"
+                required
+                maxlength="160"
+                aria-describedby="login-error"
+            /></label>
+            <label class="field" for="login-password">Senha</label>
+            <div class="password-field">
+              <input
+                id="login-password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="Digite sua senha"
+                required
+                maxlength="160"
+                aria-describedby="login-error"
+              /><button
+                id="toggle-password"
+                type="button"
+                aria-label="Mostrar senha"
+                aria-pressed="false"
+              >
+                Mostrar
+              </button>
+            </div>
+            <p id="login-error" class="login-error" role="alert"></p>
+            <button type="submit" class="button primary login-submit">
+              Entrar no CRM <span aria-hidden="true">→</span>
+            </button>
+          </form>
+          <div class="demo-credentials">
+            <strong>Acesso para apresentação</strong>
+            <p>E-mail: <code>aluno@orion.demo</code><br />Senha: <code>Orion123!</code></p>
+            <button class="text-link" id="fill-credentials" type="button">
+              Preencher credenciais de demonstração →
+            </button>
+          </div>
+          <p class="login-note">
+            Projeto acadêmico · Acesso simulado, sem autenticação em servidor. Use apenas os dados
+            de demonstração.
+          </p>
+        </div>
+        <small class="login-copyright">Orion CRM · Conexões que dão resultado.</small>
+      </div>
+    </section>
+  </body>
+</html>

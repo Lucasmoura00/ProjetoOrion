@@ -1,0 +1,16 @@
+/* Estilos exclusivos: atividades. */
+/* A agenda usa os componentes de tarefa compartilhados com o dashboard. */
+.tasks-page .task-list {
+  padding: 0 22px 12px;
+}
+.tasks-page .task {
+  padding-block: 20px;
+}
+.tasks-page .task-content {
+  min-width: 0;
+}
+@media (max-width: 600px) {
+  .tasks-page .task-list {
+    padding-inline: 16px;
+  }
+}

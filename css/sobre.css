@@ -1,0 +1,50 @@
+/* Estilos exclusivos: sobre. */
+.about-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 22px;
+}
+
+.prose {
+  padding: 25px;
+}
+
+.prose h2 {
+  margin: 0 0 15px;
+}
+
+.prose h3 {
+  margin: 25px 0 10px;
+}
+
+.prose p,
+.prose li {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #78866c;
+}
+
+.prose a {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+.prose code {
+  background: #f0f4e9;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.about-layout > * {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about-title {
+  margin-top: 14px !important;
+}
