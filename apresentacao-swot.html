@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Matriz SWOT — Projeto Orion</title>
+  <style>
+    *{box-sizing:border-box}
+    :root{color-scheme:dark;font-family:Arial,Helvetica,sans-serif;background:#081319;color:#f5f7f4}
+    body{margin:0;overflow:hidden}
+    #viewport{position:fixed;inset:0;overflow:hidden;background:#081319}
+    #deck{position:absolute;left:50%;top:50%;width:1600px;height:900px;transform:translate(-50%,-50%) scale(var(--scale,1));transform-origin:center}
+    .slide{position:absolute;inset:0;padding:90px 100px;display:none;grid-template-columns:470px 1fr;column-gap:90px;align-items:center;background:#081319;--accent:#98e5a5}
+    .slide.active{display:grid}
+    .slide:nth-child(2){--accent:#f3c17b}
+    .slide:nth-child(3){--accent:#85c9f3}
+    .slide:nth-child(4){--accent:#ef9c9c}
+    .intro{align-self:stretch;display:flex;flex-direction:column;justify-content:center;position:relative}
+    .eyebrow{margin:0 0 34px;font-size:18px;letter-spacing:5px;text-transform:uppercase;color:#a0b3bd}
+    h1{font-size:77px;line-height:1.08;letter-spacing:-4px;margin:0;color:var(--accent);font-weight:700}
+    .slide:nth-child(3) h1{font-size:61px;letter-spacing:-3px}
+    .subtitle{font-size:25px;line-height:1.5;max-width:380px;color:#bdcbd1;margin:25px 0 0}
+    .matrix{display:grid;grid-template-columns:76px 76px;grid-template-rows:76px 76px;gap:7px;margin-top:64px;width:max-content}
+    .matrix span{display:grid;place-items:center;font-size:28px;font-weight:bold;border:1px solid #314149;color:#5d737f}
+    .matrix .selected{background:var(--accent);border-color:var(--accent);color:#081319}
+    .content{border-left:1px solid #34434a;padding-left:70px}
+    ul{list-style:none;padding:0;margin:0;display:grid;gap:37px}
+    li{padding-left:30px;position:relative}
+    li:before{content:'';position:absolute;left:0;top:15px;width:8px;height:8px;background:var(--accent);border-radius:50%}
+    li strong{display:block;font-size:31px;line-height:1.25;font-weight:600;letter-spacing:-.4px}
+    li p{font-size:23px;line-height:1.5;margin:10px 0 0;color:#aebfc7;max-width:610px}
+    .active .intro{animation:enter 650ms ease both}
+    .active li{animation:enter 650ms ease both;animation-delay:calc(120ms + var(--i)*100ms)}
+    .active .matrix{animation:enter 800ms ease both;animation-delay:300ms}
+    @keyframes enter{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    #launch{position:fixed;z-index:10;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#081319f5;text-align:center;padding:30px}
+    #launch h2{font-size:clamp(36px,6vw,70px);margin:0 0 18px;letter-spacing:-2px}
+    #launch p{color:#b2c2ca;font-size:18px;line-height:1.7;margin:0 0 32px}
+    button{border:0;background:#98e5a5;color:#081319;padding:20px 35px;border-radius:5px;font:700 19px Arial;cursor:pointer}
+    button:focus-visible{outline:3px solid white;outline-offset:6px}
+    #launch[hidden]{display:none}
+    body.presenting{cursor:none}
+    :fullscreen #launch{display:none}
+    @media(prefers-reduced-motion:reduce){*,*:before{animation:none!important;transition:none!important}}
+    @media print{
+      @page{size:landscape;margin:0}
+      body{overflow:visible;background:white}
+      #launch{display:none!important}
+      #viewport,#deck{position:static;transform:none;width:auto;height:auto;overflow:visible}
+      .slide{position:relative;display:grid!important;width:297mm;height:210mm;padding:15mm;grid-template-columns:34% 1fr;gap:10mm;break-after:page;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+      .slide:last-child{break-after:auto}h1{font-size:40px}.slide:nth-child(3) h1{font-size:32px}.eyebrow{font-size:12px;letter-spacing:2px}.subtitle{font-size:17px}.matrix{margin-top:30px;grid-template-columns:45px 45px;grid-template-rows:45px 45px}.matrix span{font-size:20px}.content{padding-left:9mm}ul{gap:20px}li strong{font-size:21px}li p{font-size:16px}li:before{top:10px}
+    }
+  </style>
+</head>
+<body>
+  <div id="launch">
+    <h2>Matriz SWOT · Orion</h2>
+    <p>4 slides · Use ← e → para navegar.<br>F ativa a tela cheia · Esc sai da tela cheia.</p>
+    <button id="start" type="button">Iniciar apresentação</button>
+  </div>
+  <main id="viewport" aria-label="Apresentação da matriz SWOT do projeto Orion">
+    <div id="deck">
+      <section class="slide active" aria-label="Slide 1 de 4: Forças">
+        <div class="intro">
+          <p class="eyebrow">Orion / Matriz SWOT</p>
+          <h1>Forças</h1>
+          <p class="subtitle">O que o projeto oferece de melhor</p>
+          <div class="matrix" aria-hidden="true"><span class="selected">S</span><span>W</span><span>O</span><span>T</span></div>
+        </div>
+        <div class="content"><ul>
+          <li style="--i:0"><strong>Informações centralizadas</strong><p>Dados dos clientes reunidos em um único sistema.</p></li>
+          <li style="--i:1"><strong>Rotina comercial organizada</strong><p>Consulta de históricos, acompanhamento de tarefas e gestão de oportunidades.</p></li>
+          <li style="--i:2"><strong>Interface personalizável</strong><p>Adaptada às necessidades da empresa.</p></li>
+          <li style="--i:3"><strong>Mais agilidade e visibilidade</strong><p>Organização e acompanhamento dos processos internos.</p></li>
+        </ul></div>
+      </section>
+      <section class="slide" aria-label="Slide 2 de 4: Fraquezas" aria-hidden="true" inert>
+        <div class="intro">
+          <p class="eyebrow">Orion / Matriz SWOT</p>
+          <h1>Fraquezas</h1>
+          <p class="subtitle">Limitações e pontos que precisam melhorar</p>
+          <div class="matrix" aria-hidden="true"><span>S</span><span class="selected">W</span><span>O</span><span>T</span></div>
+        </div>
+        <div class="content"><ul>
+          <li style="--i:0"><strong>Dependência da atualização dos dados</strong><p>As informações precisam ser alimentadas corretamente pelos colaboradores.</p></li>
+          <li style="--i:1"><strong>Funcionalidades em evolução</strong><p>Novas demandas exigem aprimoramentos no sistema.</p></li>
+          <li style="--i:2"><strong>Limitações de integração</strong><p>A conexão com outros sistemas da empresa ainda pode ser um desafio.</p></li>
+          <li style="--i:3"><strong>Manutenção contínua</strong><p>Necessidade de garantir segurança, backups e conservação dos dados.</p></li>
+        </ul></div>
+      </section>
+      <section class="slide" aria-label="Slide 3 de 4: Oportunidades" aria-hidden="true" inert>
+        <div class="intro">
+          <p class="eyebrow">Orion / Matriz SWOT</p>
+          <h1>Oportunidades</h1>
+          <p class="subtitle">Caminhos para a evolução do projeto</p>
+          <div class="matrix" aria-hidden="true"><span>S</span><span>W</span><span class="selected">O</span><span>T</span></div>
+        </div>
+        <div class="content"><ul>
+          <li style="--i:0"><strong>Integração com ferramentas da empresa</strong><p>Conectar WhatsApp, e-mail, planilhas e outros sistemas.</p></li>
+          <li style="--i:1"><strong>Dashboards e relatórios</strong><p>Ampliar as análises para apoiar a tomada de decisões.</p></li>
+          <li style="--i:2"><strong>Expansão para outros setores</strong><p>Levar o CRM a novas áreas e processos internos.</p></li>
+        </ul></div>
+      </section>
+      <section class="slide" aria-label="Slide 4 de 4: Ameaças" aria-hidden="true" inert>
+        <div class="intro">
+          <p class="eyebrow">Orion / Matriz SWOT</p>
+          <h1>Ameaças</h1>
+          <p class="subtitle">Riscos para a continuidade do projeto</p>
+          <div class="matrix" aria-hidden="true"><span>S</span><span>W</span><span>O</span><span class="selected">T</span></div>
+        </div>
+        <div class="content"><ul>
+          <li style="--i:0"><strong>Descompasso com a empresa</strong><p>O projeto pode ficar ultrapassado se não acompanhar novas necessidades.</p></li>
+          <li style="--i:1"><strong>Falta de atualizações</strong><p>A ausência de melhorias pode prejudicar o funcionamento do sistema.</p></li>
+          <li style="--i:2"><strong>Risco de desuso</strong><p>Manter a utilidade do CRM exige evolução contínua e novas funcionalidades.</p></li>
+        </ul></div>
+      </section>
+    </div>
+  </main>
+  <script>
+    const slides = [...document.querySelectorAll('.slide')];
+    const launch = document.getElementById('launch');
+    let current = 0;
+    let started = false;
+    function fit() {
+      document.documentElement.style.setProperty('--scale', Math.min(innerWidth / 1600, innerHeight / 900));
+    }
+    function show(index) {
+      current = Math.max(0, Math.min(slides.length - 1, index));
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === current);
+        slide.setAttribute('aria-hidden', String(i !== current));
+        slide.inert = i !== current;
+      });
+    }
+    async function fullscreen() {
+      if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
+        try { await document.documentElement.requestFullscreen(); }
+        catch { /* F11 remains available when the browser blocks the Fullscreen API. */ }
+      }
+    }
+    async function start() {
+      started = true;
+      launch.hidden = true;
+      document.body.classList.add('presenting');
+      // Replay the first slide animation after the launch screen is dismissed.
+      slides[current].classList.remove('active');
+      void slides[current].offsetWidth;
+      show(current);
+      await fullscreen();
+    }
+    document.getElementById('start').addEventListener('click', start);
+    addEventListener('resize', fit);
+    document.addEventListener('fullscreenchange', fit);
+    document.addEventListener('keydown', event => {
+      if (event.altKey || event.ctrlKey || event.metaKey) return;
+      if (!started) {
+        if (['Enter', ' ', 'f', 'F'].includes(event.key)) { event.preventDefault(); start(); }
+        return;
+      }
+      if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(event.key)) { event.preventDefault(); show(current + 1); }
+      if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(event.key)) { event.preventDefault(); show(current - 1); }
+      if (event.key === 'Home') { event.preventDefault(); show(0); }
+      if (event.key === 'End') { event.preventDefault(); show(3); }
+      if (event.key.toLowerCase() === 'f') { event.preventDefault(); fullscreen(); }
+    });
+    document.getElementById('viewport').addEventListener('click', () => { if (started) show(current + 1); });
+    document.getElementById('viewport').addEventListener('contextmenu', event => { if (started) { event.preventDefault(); show(current - 1); } });
+    let touchX = null;
+    document.addEventListener('touchstart', event => { touchX = event.changedTouches[0].clientX; }, { passive: true });
+    document.addEventListener('touchend', event => {
+      if (!started || touchX === null) return;
+      const delta = event.changedTouches[0].clientX - touchX;
+      if (Math.abs(delta) > 50) { event.preventDefault(); show(current + (delta < 0 ? 1 : -1)); }
+      touchX = null;
+    }, { passive: false });
+    fit();
+  </script>
+</body>
+</html>

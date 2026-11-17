@@ -1,1 +1,22 @@
-{"scripts":{"dev":"vite","start":"vite --host 0.0.0.0","build":"vite build","preview":"vite preview"},"dependencies":{"@vitejs/plugin-react":"latest","vite":"latest","react":"latest","react-dom":"latest"},"devDependencies":{}}
+{
+  "scripts": {
+    "dev": "node server/dev.mjs",
+    "start": "node server/dev.mjs",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "node server/index.mjs",
+    "db:init": "node --input-type=module -e \"import { openDatabase } from './server/database.mjs'; openDatabase().close(); console.log('Banco criado em database/orion.sqlite');\"",
+    "test": "node --test server/database.test.mjs server/navigation.test.mjs"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "type": "module"
+}

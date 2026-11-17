@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Orion Service — Apresentação do projeto</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#071d23;font-family:Arial,Helvetica,sans-serif}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}#viewport{position:fixed;inset:0;overflow:hidden}#deck{position:absolute;top:50%;left:50%;width:1600px;height:900px;transform:translate(-50%,-50%) scale(var(--scale,1));transform-origin:center}.slide{position:absolute;inset:0;display:none;overflow:hidden;padding:64px 86px;background:#f4f5ef;color:#132d31}.slide.active{display:block}.topline{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;margin-bottom:42px}.brand{font-size:24px;font-weight:800;letter-spacing:-1px;display:flex;align-items:center;gap:12px}.brand svg{width:30px;height:30px;color:#237753}.brand em{font-style:normal;font-weight:400;letter-spacing:3px;font-size:15px;margin-left:5px}.chapter{font-size:14px;text-transform:uppercase;letter-spacing:3px;color:#627b77}.chapter b{color:#24644b;margin-right:14px}h1,h2,p{margin:0}h1{font-size:70px;line-height:1.04;letter-spacing:-3px;font-weight:700}.lead{font-size:25px;line-height:1.4;color:#57706c;margin-top:22px}.label{font-size:15px;letter-spacing:3px;text-transform:uppercase;font-weight:bold}.page-foot{position:absolute;left:86px;right:86px;bottom:34px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#627b77;letter-spacing:.4px}.page-foot .position{display:flex;gap:6px}.position i{display:block;width:24px;height:3px;background:#cedbd2}.position i.on{background:#237753}
+/* 01 — problema e solução */
+.problem-title{max-width:1040px}.problem-title h1 span{color:#24754d}.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:84px;margin-top:49px}.problem-col{padding-top:23px;border-top:2px solid #cbd7cc}.problem-col .label{color:#6e6558}.problem-col.solution-col{border-top-color:#24754d}.solution-col .label{color:#24754d}.point{display:grid;grid-template-columns:28px 1fr;gap:17px;margin-top:26px}.point .mark{font-size:24px;line-height:1;color:#8d8779}.solution-col .mark{color:#24754d}.point strong{font-size:25px;line-height:1.25;font-weight:600;display:block;letter-spacing:-.4px}.point p{font-size:20px;line-height:1.4;color:#5d706e;margin-top:5px}.bottom-flow{display:flex;align-items:center;gap:20px;border-top:1px solid #cad6cd;margin-top:36px;padding-top:21px;font-size:17px;font-weight:bold;color:#285d47}.bottom-flow .arrow{color:#8aa38b;font-size:23px}.bottom-flow .flow-label{font-size:12px;letter-spacing:2px;color:#70847a;margin-right:14px}
+.problem-title h1{font-size:64px}.problem-title .lead{font-size:23px}.problem-grid{margin-top:32px}.point{margin-top:20px}.point strong{font-size:24px}.point p{font-size:19px;line-height:1.35}
+/* 02 — tecnologias e IA */
+.technology{background:#071f27;color:#f1f6ef}.technology:before{content:'';position:absolute;right:-300px;top:-450px;width:1100px;height:1100px;border:1px solid #487e7033;border-radius:50%;box-shadow:0 0 0 90px #487e700a,0 0 0 180px #487e7008;pointer-events:none}.technology .brand svg{color:#b3e98a}.technology .chapter,.technology .page-foot{color:#8eacae}.technology .chapter b{color:#b3e98a}.technology h1{font-size:65px}.technology h1 span{color:#b3e98a}.tech-layout{display:grid;grid-template-columns:1.32fr 1fr;gap:72px;margin-top:48px}.architecture{position:relative;display:grid;gap:24px}.layer{display:grid;grid-template-columns:63px 1fr;gap:22px;position:relative}.layer:not(:last-child):after{content:'';position:absolute;left:27px;top:58px;height:31px;width:1px;background:#5f927575}.layer-number{font-size:20px;color:#b3e98a;width:56px;height:56px;display:grid;place-items:center;border:1px solid #64977e70;border-radius:50%}.layer h2{font-size:28px;margin:0 0 7px;letter-spacing:-.5px}.layer p{font-size:20px;line-height:1.45;color:#a1b9bc}.layer .stack{font-size:17px;color:#b3e98a;display:block;margin-top:8px}.tools-note{border-top:1px solid #315057;margin-top:29px;padding-top:19px;font-size:17px;line-height:1.6;color:#a1b9bc}.tools-note b{color:#e3eee9}.ai{border-left:1px solid #3b575d;padding-left:45px}.ai .label{color:#b3e98a;margin-bottom:23px}.ai h2{font-size:32px;line-height:1.2;letter-spacing:-1px}.ai>p{font-size:21px;line-height:1.5;color:#b5c7c7;margin-top:18px}.ai ul{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:15px}.ai li{font-size:20px;line-height:1.4;padding-left:20px;position:relative;color:#d5e2dd}.ai li:before{content:'';width:5px;height:5px;background:#b3e98a;position:absolute;left:0;top:11px}.ai .responsibility{font-size:17px;color:#a8bcbc;border-top:1px solid #315057;padding-top:18px;margin-top:25px}.technology .position i{background:#37575c}.technology .position .on{background:#b3e98a}
+/* 03 — matriz SWOT */
+.swot .topline{margin-bottom:30px}.swot-heading{display:flex;justify-content:space-between;align-items:flex-end}.swot h1{font-size:65px}.swot-heading p{font-size:20px;color:#61756e;max-width:400px;line-height:1.4;text-align:right}.matrix{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:235px 235px;column-gap:54px;row-gap:26px;margin-top:39px}.quadrant{position:relative;padding:21px 0 0 79px;border-top:2px solid var(--accent);--accent:#28704c}.quadrant.weak{--accent:#a56d30}.quadrant.opportunity{--accent:#2c7588}.quadrant.threat{--accent:#a65250}.quadrant .letter{position:absolute;left:0;top:15px;font-size:63px;line-height:1;font-weight:700;letter-spacing:-5px;color:var(--accent);opacity:.9}.quadrant h2{font-size:29px;line-height:1.1;letter-spacing:-.6px;color:var(--accent);margin-bottom:16px}.quadrant ul{padding:0 0 0 19px;margin:0;display:grid;gap:10px;font-size:21px;line-height:1.35;color:#354f4b}.demo-link{color:#235c41;text-decoration:none;font-size:16px;font-weight:700;display:inline-flex;align-items:center;gap:12px;border-bottom:1px solid #97b99c;padding:7px 0}.demo-link:hover{color:#0b8d4e}.demo-link:focus-visible{outline:3px solid #237753;outline-offset:6px}
+/* Animações de entrada, sem avanço automático. */
+.active .topline{animation:reveal 600ms ease both}.active h1{animation:reveal 700ms var(--ease) both}.active .lead{animation:reveal 700ms var(--ease) 100ms both}.active .problem-col,.active .layer,.active .quadrant{animation:reveal 650ms var(--ease) both;animation-delay:var(--delay,150ms)}.active .solution-col{--delay:250ms}.active .layer:nth-child(2),.active .quadrant:nth-child(2){--delay:240ms}.active .layer:nth-child(3),.active .quadrant:nth-child(3){--delay:330ms}.active .quadrant:nth-child(4){--delay:420ms}.active .ai{animation:reveal 750ms var(--ease) 250ms both}.active .bottom-flow{animation:reveal 700ms var(--ease) 400ms both}:root{--ease:cubic-bezier(.2,.8,.2,1)}@keyframes reveal{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+#launch{position:fixed;z-index:10;inset:0;background:radial-gradient(ellipse at 80% 0%,#1c5344,#071f27 65%);color:#f1f6ef;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px;text-align:center}#launch[hidden]{display:none}#launch .label{color:#b3e98a;margin-bottom:24px}#launch h2{font-size:clamp(40px,6vw,78px);letter-spacing:-2px;line-height:1.1}#launch p{font-size:18px;line-height:1.7;color:#b5c9c6;margin:25px 0}#launch button{background:#b3e98a;border:0;border-radius:4px;color:#123325;padding:18px 30px;font-size:18px;font-weight:bold}#launch button:hover{background:#c7f5a2}#launch button:focus-visible{outline:3px solid white;outline-offset:6px}#launch small{display:block;font-size:13px;color:#96b0af;margin-top:22px}#fallback{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#fff;color:#173e36;border-radius:6px;padding:15px 22px;z-index:20;font-size:15px}#fallback[hidden]{display:none}body.presenting{cursor:none}body.pointer-visible{cursor:auto}body.presenting a{cursor:pointer}:fullscreen #launch{display:none}
+@media(prefers-reduced-motion:reduce){*,*:before{animation:none!important;transition:none!important}}
+@media print{@page{size:1600px 900px;margin:0}html,body{height:auto;overflow:visible;background:white}#launch,#fallback{display:none!important}#viewport,#deck{position:static;width:1600px;height:auto;transform:none;overflow:visible}.slide{display:block!important;position:relative;width:1600px;height:900px;break-after:page}.slide:last-child{break-after:auto}*{animation:none!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div id="launch">
+  <p class="label">Apresentação do projeto</p><h2>Orion Service</h2>
+  <p>3 slides + demonstração prática<br>← → para navegar · F para tela cheia · D para abrir o site</p>
+  <button id="start" type="button">Iniciar apresentação</button>
+  <small>Para a demonstração, mantenha o site rodando em localhost:5173.<br>Esc sai da tela cheia. Os slides funcionam offline.</small>
+</div>
+<p id="fallback" role="status" hidden>Pressione F11 para ocultar a barra do navegador.</p>
+<main id="viewport" aria-label="Apresentação do projeto Orion Service">
+<div id="deck">
+  <section class="slide active" aria-label="Slide 1 de 3 — Problema e solução">
+    <div class="topline"><div class="brand"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 0c1 10 6 15 16 16-10 1-15 6-16 16C15 22 10 17 0 16 10 15 15 10 16 0Z"/></svg>ORION <em>SERVICE</em></div><div class="chapter"><b>01</b> Problema e solução</div></div>
+    <div class="problem-title"><h1>Uma central para organizar<br>o <span>suporte aos equipamentos</span></h1><p class="lead">Consultar a máquina, buscar orientação e registrar o atendimento em um só lugar.</p></div>
+    <div class="problem-grid">
+      <div class="problem-col"><p class="label">O problema que buscamos resolver</p>
+        <div class="point"><span class="mark">−</span><div><strong>Informações dispersas</strong><p>Dificuldade para reunir dados das máquinas e pedidos de ajuda.</p></div></div>
+        <div class="point"><span class="mark">−</span><div><strong>Orientações pouco acessíveis</strong><p>Falta de um caminho claro para consultar problemas e possíveis causas.</p></div></div>
+        <div class="point"><span class="mark">−</span><div><strong>Atendimentos difíceis de acompanhar</strong><p>Necessidade de registrar solicitações e consultar sua situação.</p></div></div>
+      </div>
+      <div class="problem-col solution-col"><p class="label">Como estamos resolvendo</p>
+        <div class="point"><span class="mark">+</span><div><strong>Equipamentos em uma única consulta</strong><p>Lista com modelo, série, situação, busca e filtro.</p></div></div>
+        <div class="point"><span class="mark">+</span><div><strong>Base de conhecimento</strong><p>Problemas, possíveis causas e um exemplo de solução guiada.</p></div></div>
+        <div class="point"><span class="mark">+</span><div><strong>Chamados gravados no banco</strong><p>Registro com cliente, equipamento, descrição, prioridade e status.</p></div></div>
+      </div>
+    </div>
+    <div class="bottom-flow"><span class="flow-label">FLUXO DO USUÁRIO</span><span>Consultar</span><span class="arrow">→</span><span>Buscar orientação</span><span class="arrow">→</span><span>Abrir chamado</span><span class="arrow">→</span><span>Acompanhar</span></div>
+    <div class="page-foot"><span>Protótipo acadêmico · dados fictícios</span><span class="position" aria-hidden="true"><i class="on"></i><i></i><i></i></span></div>
+  </section>
+  <section class="slide technology" aria-label="Slide 2 de 3 — Tecnologias e declaração de IA" aria-hidden="true" inert>
+    <div class="topline"><div class="brand"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 0c1 10 6 15 16 16-10 1-15 6-16 16C15 22 10 17 0 16 10 15 15 10 16 0Z"/></svg>ORION <em>SERVICE</em></div><div class="chapter"><b>02</b> Tecnologias e declaração de IA</div></div>
+    <h1>Como o sistema funciona<br><span>e como usamos IA</span></h1>
+    <div class="tech-layout">
+      <div><div class="architecture">
+        <div class="layer"><span class="layer-number">01</span><div><h2>Interface no navegador</h2><p>Telas, formulários, navegação e animações.</p><span class="stack">React · JavaScript · HTML · CSS</span></div></div>
+        <div class="layer"><span class="layer-number">02</span><div><h2>Servidor e comunicação</h2><p>Recebe os pedidos, valida os campos e acessa os dados.</p><span class="stack">Node.js · API HTTP</span></div></div>
+        <div class="layer"><span class="layer-number">03</span><div><h2>Armazenamento dos registros</h2><p>Guarda clientes, equipamentos, problemas e chamados.</p><span class="stack">SQLite · banco relacional</span></div></div>
+      </div><p class="tools-note"><b>Vite</b> para executar e compilar a interface.<br><b>DBeaver</b> para consultar e apresentar o banco separadamente.</p></div>
+      <div class="ai"><p class="label">Declaração de uso de IA</p><h2>Utilizamos ChatGPT / Codex<br>como apoio ao desenvolvimento.</h2><p>A ferramenta auxiliou na elaboração e nos ajustes do projeto:</p><ul><li>Interface, navegação e animações.</li><li>Estrutura do banco e integração com o site.</li><li>Testes, documentação e apresentações.</li></ul><p class="responsibility">A IA não substitui a responsabilidade do grupo de compreender, revisar e validar o que será apresentado.</p></div>
+    </div>
+    <div class="page-foot"><span>Execução local · login demonstrativo · sem autenticação real</span><span class="position" aria-hidden="true"><i></i><i class="on"></i><i></i></span></div>
+  </section>
+  <section class="slide swot" aria-label="Slide 3 de 3 — Matriz SWOT" aria-hidden="true" inert>
+    <div class="topline"><div class="brand"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 0c1 10 6 15 16 16-10 1-15 6-16 16C15 22 10 17 0 16 10 15 15 10 16 0Z"/></svg>ORION <em>SERVICE</em></div><div class="chapter"><b>03</b> Análise do projeto</div></div>
+    <div class="swot-heading"><h1>Matriz SWOT</h1><p>Pontos fortes, limitações e caminhos<br>para a evolução do Orion Service.</p></div>
+    <div class="matrix">
+      <div class="quadrant"><span class="letter" aria-hidden="true">S</span><h2>Forças</h2><ul><li>Informações centralizadas e organizadas.</li><li>Consulta rápida de equipamentos e chamados.</li><li>Interface adaptável às necessidades da empresa.</li></ul></div>
+      <div class="quadrant weak"><span class="letter" aria-hidden="true">W</span><h2>Fraquezas</h2><ul><li>Dependência do preenchimento correto dos dados.</li><li>Funções e integrações ainda em evolução.</li><li>Segurança, backups e manutenção a aprimorar.</li></ul></div>
+      <div class="quadrant opportunity"><span class="letter" aria-hidden="true">O</span><h2>Oportunidades</h2><ul><li>Integrar WhatsApp, e-mail e planilhas.</li><li>Ampliar dashboards e relatórios para decisões.</li><li>Expandir o sistema para outros setores.</li></ul></div>
+      <div class="quadrant threat"><span class="letter" aria-hidden="true">T</span><h2>Ameaças</h2><ul><li>Ficar defasado diante de novas necessidades.</li><li>Perder confiabilidade por falta de atualizações.</li><li>Cair em desuso sem melhorias contínuas.</li></ul></div>
+    </div>
+    <div class="page-foot"><a class="demo-link" href="http://localhost:5173/" target="_blank" rel="noopener noreferrer">Demonstração do sistema <span aria-hidden="true">↗</span></a><span class="position" aria-hidden="true"><i></i><i></i><i class="on"></i></span></div>
+  </section>
+</div>
+</main>
+<script>
+const slides=[...document.querySelectorAll('.slide')],launch=document.getElementById('launch');
+let current=0,started=false,touchX=null,pointerTimer;
+function fit(){document.documentElement.style.setProperty('--scale',Math.min(innerWidth/1600,innerHeight/900));}
+function show(index){current=Math.max(0,Math.min(slides.length-1,index));slides.forEach((slide,i)=>{slide.classList.toggle('active',i===current);slide.setAttribute('aria-hidden',String(i!==current));slide.inert=i!==current;});}
+async function fullscreen(){if(document.fullscreenElement)return;try{await document.documentElement.requestFullscreen();document.getElementById('fallback').hidden=true;}catch{const note=document.getElementById('fallback');note.hidden=false;setTimeout(()=>{note.hidden=true;},4500);}}
+async function start(){started=true;launch.hidden=true;document.body.classList.add('presenting');slides[current].classList.remove('active');void slides[current].offsetWidth;show(current);await fullscreen();}
+function demo(){window.open('http://localhost:5173/','_blank','noopener,noreferrer');if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});}
+document.getElementById('start').addEventListener('click',start);
+addEventListener('resize',fit);document.addEventListener('fullscreenchange',fit);
+document.addEventListener('keydown',event=>{
+ if(event.altKey||event.ctrlKey||event.metaKey)return;
+ if(!started){if(['Enter',' ','f','F'].includes(event.key)){event.preventDefault();start();}return;}
+ if(event.target.closest?.('a,button')&&['Enter',' '].includes(event.key))return;
+ if(['ArrowRight','ArrowDown','PageDown',' '].includes(event.key)){event.preventDefault();show(current+1);}
+ if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(event.key)){event.preventDefault();show(current-1);}
+ if(event.key==='Home'){event.preventDefault();show(0);}if(event.key==='End'){event.preventDefault();show(slides.length-1);}
+ if(event.key.toLowerCase()==='f'){event.preventDefault();fullscreen();}if(event.key.toLowerCase()==='d'){event.preventDefault();demo();}
+});
+document.getElementById('viewport').addEventListener('click',event=>{if(started&&!event.target.closest('a,button'))show(current+1);});
+document.getElementById('viewport').addEventListener('contextmenu',event=>{if(started&&!event.target.closest('a')){event.preventDefault();show(current-1);}});
+document.querySelector('.demo-link').addEventListener('click',()=>{if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});});
+document.addEventListener('pointermove',()=>{document.body.classList.add('pointer-visible');clearTimeout(pointerTimer);pointerTimer=setTimeout(()=>document.body.classList.remove('pointer-visible'),1800);});
+document.addEventListener('touchstart',event=>{touchX=event.changedTouches[0].clientX;},{passive:true});
+document.addEventListener('touchend',event=>{if(!started||touchX===null)return;const delta=event.changedTouches[0].clientX-touchX;if(Math.abs(delta)>50){event.preventDefault();show(current+(delta<0?1:-1));}touchX=null;},{passive:false});
+fit();
+</script>
+</body>
+</html>

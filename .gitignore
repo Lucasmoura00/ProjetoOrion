@@ -8,3 +8,8 @@ dist/
 /assets/*
 !/assets/crm/
 !/assets/img orion.webp
+
+/database/*.sqlite-journal
+/database/*.sqlite
+/database/*.sqlite-wal
+/database/*.sqlite-shm

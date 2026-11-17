@@ -1,0 +1,87 @@
+/* Menu compacto e movimentos da interface. Sem dependências de animação. */
+:root{--ease-out:cubic-bezier(.22,1,.36,1)}
+.app{--sidebar-width:246px;background:radial-gradient(ellipse at 90% 0%,#e8f3ee 0%,transparent 44%),var(--bg)}
+.app.sidebar-collapsed{--sidebar-width:86px}
+.app aside{width:var(--sidebar-width);padding:28px 16px 18px;background:radial-gradient(ellipse at 0% 0%,#15534780,transparent 55%),linear-gradient(160deg,#061621,#092b3c);border-right:1px solid #183c42;transition:width 340ms var(--ease-out),padding 340ms var(--ease-out)}
+.app main{margin-left:var(--sidebar-width);width:calc(100% - var(--sidebar-width));min-width:0;transition:margin-left 340ms var(--ease-out),width 340ms var(--ease-out)}
+.sidebar-brand{height:45px;overflow:hidden}
+.sidebar-brand .brand{white-space:nowrap}
+.sidebar-brand .brand i{flex-shrink:0;min-width:34px;text-align:center;text-shadow:0 0 24px #79d95750}
+.sidebar-brand strong{transition:opacity 180ms ease,transform 260ms var(--ease-out)}
+.sidebar-toggle{position:absolute;right:-15px;top:94px;width:30px;height:30px;display:grid;place-items:center;background:#123d42;color:#b6edc8;border:1px solid #38615d;border-radius:50%;box-shadow:0 3px 10px #071b2926;z-index:3;transition:background 180ms,box-shadow 180ms}
+.sidebar-toggle:hover{background:#206147;box-shadow:0 0 0 5px #8ee3ad18}
+.sidebar-toggle .nav-icon{width:17px;height:17px;transition:transform 340ms var(--ease-out)}
+.app aside nav{margin-top:68px;gap:9px}
+.app aside nav button,.app aside .logout{position:relative;display:flex;align-items:center;gap:12px;white-space:nowrap;width:100%;min-height:46px;padding:12px;border:1px solid transparent;border-radius:10px;transition:background 180ms,border-color 180ms,color 180ms,box-shadow 180ms}
+.nav-icon{flex-shrink:0}
+.app aside nav button>.nav-icon{color:#87c6ae;transition:color 180ms,transform 240ms var(--ease-out)}
+.nav-label{display:block;max-width:175px;opacity:1;overflow:hidden;transition:opacity 150ms,max-width 340ms var(--ease-out)}
+.app aside nav button.active{background:linear-gradient(100deg,#1b695449,#13566b7a);border-color:#519c7840;box-shadow:inset 3px 0 #88e2a0;color:white}
+.app aside nav button.active .nav-icon{color:#9bf4af}
+.app aside nav button:hover,.app aside .logout:hover{background:#ffffff0c;border-color:#74b49a30}
+.app aside nav button:hover .nav-icon{transform:translateY(-2px);color:#adf3bb}
+.sidebar-footer{margin-top:auto;padding-top:28px}
+.sidebar-caption{display:block;overflow:hidden;white-space:nowrap;font-size:9px;letter-spacing:1.5px;color:#76989f;margin:0 12px 12px;transition:opacity 180ms}
+.sidebar-collapsed .sidebar-brand strong{opacity:0;transform:translateX(-8px)}
+.sidebar-collapsed .sidebar-toggle .nav-icon{transform:rotate(180deg)}
+.sidebar-collapsed .nav-label{opacity:0;max-width:0}
+.sidebar-collapsed aside nav button,.sidebar-collapsed aside .logout{gap:0;justify-content:center}
+.sidebar-collapsed .sidebar-caption{opacity:0}
+.sidebar-collapsed [data-tooltip]:after{content:attr(data-tooltip);position:absolute;left:calc(100% + 23px);top:50%;transform:translate(6px,-50%);padding:10px 14px;border-radius:8px;background:#102c39;color:white;box-shadow:0 8px 25px #071b2926;font-size:12px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity 160ms,transform 160ms;z-index:10}
+.sidebar-collapsed [data-tooltip]:is(:hover,:focus-visible):after{opacity:1;visibility:visible;transform:translate(0,-50%)}
+button:focus-visible,a:focus-visible{outline:3px solid #36b575;outline-offset:4px}
+button:disabled{cursor:wait;opacity:.65}
+.page-content{display:flow-root;animation:page-in 450ms var(--ease-out) both}
+.page-content header{animation:content-in 500ms var(--ease-out) both}
+.stat,.equip,.problem,.step,.categories button{animation:content-in 520ms var(--ease-out) backwards;transition:box-shadow 240ms,border-color 240ms,translate 240ms var(--ease-out)}
+:is(.stats,.equipgrid,.problem-list,.categories)>:nth-child(2){animation-delay:55ms}
+:is(.stats,.equipgrid,.problem-list,.categories)>:nth-child(3){animation-delay:110ms}
+:is(.stats,.equipgrid,.problem-list,.categories)>:nth-child(4){animation-delay:165ms}
+:is(.stats,.equipgrid,.problem-list,.categories)>:nth-child(n+5){animation-delay:210ms}
+.stat{box-shadow:0 4px 20px #0c314407;border-color:#dfe9e5}
+.equip,.problem{box-shadow:0 4px 20px #0c314405}
+.stat .icon{transition:transform 250ms var(--ease-out),background 250ms}
+.equip .tractor{transition:translate 350ms var(--ease-out)}
+.quick{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 80% 0%,#22876b55,transparent 65%),linear-gradient(110deg,#062332,#0b4c58);box-shadow:0 12px 30px #073b4614;animation:content-in 650ms var(--ease-out) backwards;animation-delay:180ms}
+.quick:before{content:'';position:absolute;inset:-150% -20%;z-index:-1;pointer-events:none;background:linear-gradient(115deg,transparent 42%,#b7ffd512 50%,transparent 58%);animation:light-pass 1600ms ease-out both}
+.quick h2{font-size:19px}
+.primary{box-shadow:0 4px 12px #159b471c;transition:translate 180ms,box-shadow 200ms,filter 200ms}
+:is(.sectionhead,.equip,.problem,.actions,.db-actions) button,.back-button{transition:background 180ms,color 180ms,border-color 180ms,translate 180ms,box-shadow 180ms}
+.primary:active,button:active:not(.sidebar-toggle){translate:0 1px}
+.back-button:hover span{transform:translateX(-3px)}
+.back-button span{transition:transform 180ms}
+input,select,textarea{transition:border-color 180ms,box-shadow 180ms,background 180ms}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#299a62!important;box-shadow:0 0 0 4px #20b65614;background:#fff}
+.tr:not(.th){animation:content-in 400ms var(--ease-out) backwards;transition:background 180ms}
+.tr:not(.th):hover{background:#f1f8f4}
+.login form{animation:content-in 650ms var(--ease-out) both}
+.login>section{position:relative;overflow:hidden}
+.login>section:before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 20% 80%,#20b65626,transparent 65%);animation:login-light 1800ms ease-out both}
+.login>section>*{position:relative;animation:content-in 850ms var(--ease-out) both}
+.login>section h1{animation-delay:100ms}.login>section p{animation-delay:200ms}
+.mobilebar button{display:grid;place-items:center;border-radius:12px;margin:7px 0;min-width:44px;transition:background 200ms,color 200ms}
+.mobilebar button.active{background:#23594d;color:#a3edb3}
+@media(hover:hover){
+ .stat:hover,.equip:hover{translate:0 -4px;border-color:#b7d6c7;box-shadow:0 12px 28px #0c314412}
+ .stat:hover .icon{transform:rotate(-6deg) scale(1.08)}
+ .equip:hover .tractor{translate:-4px 0}
+ .problem:hover,.categories button:hover{translate:0 -2px;border-color:#a8d1b8;box-shadow:0 8px 22px #0c31440c}
+ .primary:hover:not(:disabled){translate:0 -2px;filter:brightness(1.06);box-shadow:0 8px 20px #159b4730}
+ .equip button:hover,.sectionhead button:hover{background:#edf8f0;border-color:#8cc6a1}
+ .problem button:hover{color:#089340;translate:3px 0}
+}
+@keyframes page-in{from{opacity:0}to{opacity:1}}
+@keyframes content-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes light-pass{from{transform:translateX(-35%);opacity:0}30%{opacity:1}to{transform:translateX(35%);opacity:0}}
+@keyframes login-light{from{opacity:0}to{opacity:1}}
+@media(max-width:1100px) and (min-width:851px){.app:not(.sidebar-collapsed) .equipgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:850px){
+ .app main{margin-left:0;width:100%;padding-bottom:110px}
+ .app aside{display:none}
+ .adminlink{bottom:72px}
+ .quick h2{font-size:17px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+ .stat:hover,.equip:hover,.problem:hover,.categories button:hover,.primary:hover,.problem button:hover{translate:none}
+}

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guia das telas do Orion Service</title>
+<style>
+  *{box-sizing:border-box}body{margin:0;background:#eef2f4;color:#23313a;font:16px/1.65 Arial,Helvetica,sans-serif}main{max-width:900px;margin:35px auto;padding:54px 64px;background:white;border-radius:8px}h1{font-size:34px;line-height:1.2;color:#111;margin:0 0 20px}h2{font-size:25px;line-height:1.3;color:#173e36;margin:38px 0 14px}h3{font-size:18px;margin:24px 0 8px}p{margin:10px 0}ul,ol{padding-left:24px;margin:12px 0}li{margin:7px 0}a{color:#146546;text-underline-offset:3px}.intro{font-size:18px;color:#51616a}.notice{padding:14px 18px;background:#fff6e8;margin:20px 0}.speech{padding-left:18px;border-left:3px solid #74b495;color:#254c40;margin:18px 0}.speech b{display:block;font-size:13px;letter-spacing:.8px;text-transform:uppercase;margin-bottom:4px}.muted{color:#61717b;font-size:14px}.toc{padding:18px 22px;background:#f1f6f3;margin:24px 0}.toc ol{columns:2;column-gap:32px}.toc li{break-inside:avoid;margin:5px 0}.flow{font-size:17px;font-weight:bold;color:#215341;padding:15px 0}table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}th,td{text-align:left;vertical-align:top;border-bottom:1px solid #dce4e0;padding:10px 12px}th{background:#eff5f1;color:#234d3a}code{font:14px Consolas,monospace;background:#eef2f3;padding:3px 6px;overflow-wrap:anywhere}section{scroll-margin-top:24px}.toolbar{max-width:900px;margin:24px auto 0;text-align:right}.toolbar button{background:#205c44;color:white;border:0;padding:12px 20px;border-radius:5px;font-size:15px;cursor:pointer}.toolbar button:focus-visible{outline:3px solid #1f7385;outline-offset:3px}.back{font-size:14px;margin-top:28px;display:inline-block}
+  @media(max-width:650px){main{margin:12px;padding:28px 22px}h1{font-size:29px}.toolbar{margin:16px 12px 0}.toc ol{columns:1}table{font-size:13px}th,td{padding:8px 5px}}
+  @media print{@page{size:A4;margin:18mm}body{background:white;font-size:11pt;line-height:1.45}main{max-width:none;margin:0;padding:0;border-radius:0}.toolbar,.back{display:none}h1{font-size:25pt}h2{font-size:17pt;margin-top:24px}h3{font-size:12pt}h1,h2,h3{break-after:avoid}li,.speech,.notice,tr{break-inside:avoid}p{orphans:3;widows:3}a{color:inherit;text-decoration:none}.toc{break-inside:avoid}.intro{font-size:12pt}.muted{font-size:9pt}table{font-size:10pt}thead{display:table-header-group}.flow{font-size:11pt}code{font-size:10pt}*{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div class="toolbar"><button type="button" onclick="window.print()">Imprimir ou salvar como PDF</button></div>
+<main id="inicio">
+<h1>Guia das telas do Orion Service</h1>
+<p class="intro">Um material para os integrantes do grupo entenderem e apresentarem o site, mesmo sem conhecer programação.</p>
+<p>O Orion Service é uma central de suporte para equipamentos. A proposta é ajudar o usuário a consultar máquinas, procurar orientações sobre problemas e registrar pedidos de atendimento. Um <strong>chamado</strong> é justamente um pedido de ajuda registrado no sistema.</p>
+<p>Este guia explica a versão atual do site. As informações de clientes e equipamentos são fictícias e usadas no trabalho da faculdade. As páginas antigas de clientes, negociações e atividades pertencem a outro protótipo e não fazem parte do fluxo descrito aqui.</p>
+<div class="notice"><strong>Para apresentar com segurança:</strong> algumas funções já funcionam de verdade, como pesquisar equipamentos e salvar chamados. Outras mostram apenas como o sistema poderá funcionar, como o login e a tela fixa de solução. As diferenças estão indicadas em cada seção.</div>
+
+<nav class="toc" aria-label="Conteúdo do guia"><strong>Encontre cada tela</strong><ol>
+<li><a href="#login">Login</a></li><li><a href="#dashboard">Dashboard</a></li><li><a href="#equipamentos">Meus equipamentos</a></li><li><a href="#detalhes">Detalhes do equipamento</a></li><li><a href="#conhecimento">Base de conhecimento</a></li><li><a href="#solucao">Solução</a></li><li><a href="#abrir">Abrir chamado</a></li><li><a href="#chamados">Meus chamados</a></li><li><a href="#admin">Painel administrativo</a></li><li><a href="#banco">Banco de dados</a></li>
+</ol><a href="#roteiro">Roteiro e divisão da apresentação</a> · <a href="#duvidas">Perguntas que podem surgir</a></nav>
+
+<h2>Como se orientar no site</h2>
+<p>No computador, o menu fica à esquerda. Ele permite trocar de tela. No celular, a navegação aparece por ícones na parte inferior. O título no alto indica onde o usuário está. Nas telas internas, o botão <strong>Voltar</strong> retorna à tela anterior; quando a tela foi aberta diretamente, retorna ao Dashboard. As setas de voltar e avançar do navegador também acompanham a navegação entre as telas.</p>
+<p>A seta circular na borda do menu permite <strong>recolher ou expandir</strong> a navegação no computador. Recolhido, o menu mostra apenas os ícones; passe o mouse ou use o teclado para ver o nome de cada tela. A escolha fica salva nesse navegador. As animações acompanham a entrada das telas e as interações, respeitando a preferência de movimento reduzido do dispositivo.</p>
+<p>Os blocos com informações de equipamentos são chamados de <strong>cartões</strong>. As etiquetas coloridas indicam a situação de um equipamento ou chamado. O nome “João Silva”, no cabeçalho, é um exemplo fixo. O ícone de notificação e a indicação ao lado do nome ainda não abrem funções.</p>
+<p class="flow">Entrar → consultar equipamentos → procurar uma solução → abrir um chamado → acompanhar o registro</p>
+
+<section id="login"><h2>1 Login</h2>
+<p><strong>Para que serve:</strong> representar a entrada do usuário na central de suporte.</p>
+<p><strong>O que aparece:</strong> apresentação do Orion Service, campos de CPF e senha, “Esqueci minha senha” e botão “Entrar”.</p>
+<p><strong>Como demonstrar:</strong> preencha os dois campos com dados fictícios e clique em <strong>Entrar</strong>. O site abre o Dashboard.</p>
+<p><strong>Na versão atual:</strong> o sistema exige que os campos estejam preenchidos, mas não verifica se o CPF e a senha são verdadeiros. A recuperação de senha ainda não funciona. Não use dados pessoais ou senhas reais para demonstrar.</p>
+<div class="speech"><b>Sugestão de fala</b>“Esta é a entrada da central de suporte. No protótipo, simulamos o acesso para apresentar as telas.”</div>
+</section>
+
+<section id="dashboard"><h2>2 Dashboard</h2>
+<p><strong>Para que serve:</strong> mostrar um resumo rápido. “Dashboard” significa painel de acompanhamento.</p>
+<p><strong>O que aparece:</strong> quantidade total de equipamentos, equipamentos operacionais, equipamentos com atenção e chamados com status “Aberto”. Abaixo, aparecem os três primeiros equipamentos da lista.</p>
+<ul><li><strong>Ver todos:</strong> abre “Meus equipamentos”.</li><li><strong>Ver equipamento:</strong> abre a tela de detalhes.</li><li><strong>Consultar equipamento:</strong> também abre a tela de detalhes.</li></ul>
+<p><strong>Na versão atual:</strong> os indicadores são calculados com os registros do banco. O total de chamados abertos não inclui os que estão “Em atendimento”. Apesar dos textos “meus equipamentos”, os dados apresentados são os dados gerais de demonstração, sem separação por usuário.</p>
+<div class="speech"><b>Sugestão de fala</b>“Este painel resume a situação dos equipamentos e dos chamados. Os números vêm dos registros armazenados no banco.”</div>
+</section>
+
+<section id="equipamentos"><h2>3 Meus equipamentos</h2>
+<p><strong>Para que serve:</strong> consultar os equipamentos disponíveis no sistema.</p>
+<p><strong>O que aparece:</strong> cartões com nome, modelo, número de série e situação. O número de série identifica uma unidade específica do equipamento.</p>
+<ul><li><strong>Pesquisar equipamento:</strong> digite parte do nome, como “Hunter”. A busca procura pelo nome, não pelo número de série.</li><li><strong>Filtro de situação:</strong> escolha Todos, Operacional, Atenção ou Parado.</li><li><strong>Ver equipamento:</strong> abre os detalhes de demonstração.</li></ul>
+<p><strong>Como demonstrar:</strong> pesquise “Target”, depois apague a busca e selecione “Parado”. Para ver tudo novamente, limpe a busca e escolha “Todos”.</p>
+<p><strong>Na versão atual:</strong> a busca e o filtro funcionam. Não há botões para cadastrar, editar ou excluir equipamentos nessa tela.</p>
+<div class="speech"><b>Sugestão de fala</b>“Aqui podemos localizar uma máquina pelo nome e filtrar os equipamentos pela situação.”</div>
+</section>
+
+<section id="detalhes"><h2>4 Detalhes do equipamento</h2>
+<p><strong>Para que serve:</strong> reunir informações de uma máquina e oferecer caminhos para procurar ajuda.</p>
+<p><strong>O que aparece:</strong> nome, modelo, situação, ano, número de série, fabricante e versão. Há seis categorias de ajuda: pressão, vazão, elétrica, mecânica, aplicação e outros problemas.</p>
+<p><strong>Como demonstrar:</strong> entre pelo primeiro Orion Hunter e clique em “Problemas de pressão”. O site abre a Base de conhecimento.</p>
+<p><strong>Na versão atual:</strong> todos os botões “Ver equipamento” mostram o mesmo exemplo: Orion Hunter, série HTR24-00145. As seis categorias levam à mesma lista de problemas; ainda não existe filtro por categoria.</p>
+<div class="speech"><b>Sugestão de fala</b>“Esta tela demonstra como reunimos os dados da máquina e o acesso às orientações de suporte.”</div>
+</section>
+
+<section id="conhecimento"><h2>5 Base de conhecimento</h2>
+<p><strong>Para que serve:</strong> reunir problemas conhecidos e suas possíveis causas para orientar o usuário antes de solicitar atendimento.</p>
+<p><strong>O que aparece:</strong> uma lista com o título do problema, uma descrição curta, a possível causa e o botão “Ver solução”.</p>
+<p><strong>Como demonstrar:</strong> escolha o primeiro item, “Baixa pressão durante a aplicação”, e clique em <strong>Ver solução</strong>.</p>
+<p><strong>Na versão atual:</strong> a lista é consultada no banco. Embora o subtítulo indique “Problemas de pressão”, a tela mostra todos os problemas cadastrados. Todos os botões “Ver solução” abrem o mesmo exemplo de baixa pressão.</p>
+<div class="speech"><b>Sugestão de fala</b>“A base de conhecimento reúne problemas e possíveis causas. Para demonstrar o passo a passo, vamos usar o exemplo de baixa pressão.”</div>
+</section>
+
+<section id="solucao"><h2>6 Solução</h2>
+<p><strong>Para que serve:</strong> apresentar uma sequência de orientações para o problema escolhido.</p>
+<p><strong>O que aparece:</strong> o exemplo de baixa pressão, uma possível causa, quatro passos de verificação e um aviso para procurar suporte se o problema persistir. O conteúdo é demonstrativo, não um diagnóstico automático.</p>
+<ul><li><strong>Problema resolvido:</strong> abre a lista “Meus chamados”.</li><li><strong>Não resolveu:</strong> abre o formulário para registrar um chamado.</li></ul>
+<p><strong>Na versão atual:</strong> clicar em “Problema resolvido” <strong>não altera o status de nenhum chamado</strong>. O botão apenas troca de tela. A solução mostrada é fixa, e suas quatro instruções vêm do banco.</p>
+<div class="speech"><b>Sugestão de fala</b>“O usuário recebe orientações e, caso ainda precise de ajuda, pode seguir para a abertura de um chamado.”</div>
+</section>
+
+<section id="abrir"><h2>7 Abrir chamado</h2>
+<p><strong>Para que serve:</strong> registrar um pedido de atendimento. Esta é uma das funções que já gravam informações no banco.</p>
+<p><strong>O que preencher:</strong> cliente, equipamento, problema, descrição do ocorrido e prioridade Baixa, Média ou Alta.</p>
+<ol><li>Selecione um cliente, um equipamento e um problema nas listas.</li><li>Escreva uma descrição. Exemplo: “Durante o teste, a pressão ficou abaixo do esperado. Solicito avaliação da equipe.”</li><li>Escolha a prioridade e clique em <strong>Abrir chamado</strong>.</li><li>Aguarde o salvamento. Se der certo, o site abre “Meus chamados”. Se houver erro, a mensagem aparece no formulário.</li></ol>
+<p><strong>Na versão atual:</strong> o novo chamado recebe um número, a data de abertura e o status “Aberto”. Ele permanece salvo depois de atualizar a página ou reiniciar o sistema. Confira as seleções: elas não são preenchidas a partir do equipamento ou problema que você visitou antes.</p>
+<div class="speech"><b>Sugestão de fala</b>“Agora estamos registrando um pedido de suporte de verdade no banco do projeto. O chamado ficará salvo para consulta.”</div>
+</section>
+
+<section id="chamados"><h2>8 Meus chamados</h2>
+<p><strong>Para que serve:</strong> consultar os pedidos de atendimento registrados.</p>
+<p><strong>O que aparece:</strong> número do chamado, equipamento, problema, data e status. Os registros são apresentados do maior número para o menor, então um chamado recém-criado aparece no início.</p>
+<ul><li><strong>Aberto:</strong> solicitação registrada.</li><li><strong>Em atendimento:</strong> indica que o atendimento está em andamento.</li><li><strong>Resolvido:</strong> indica que o atendimento foi concluído.</li></ul>
+<p><strong>Como demonstrar:</strong> localize o chamado que acabou de criar. O botão <strong>+ Abrir chamado</strong> permite registrar outro pedido.</p>
+<p><strong>Na versão atual:</strong> a tela consulta os registros, mas não oferece edição de status, exclusão ou abertura de detalhes de um chamado. Os status dos exemplos antigos já estavam cadastrados. No celular, algumas colunas ficam ocultas para caber na tela.</p>
+<div class="speech"><b>Sugestão de fala</b>“Nesta lista, o usuário consulta os chamados registrados e a situação informada em cada um.”</div>
+</section>
+
+<section id="admin"><h2>9 Painel administrativo</h2>
+<p><strong>Como acessar:</strong> clique em <strong>Acesso admin</strong>, no canto inferior direito, depois de entrar no site.</p>
+<p><strong>Para que serve:</strong> mostrar uma visão geral para quem acompanha o atendimento.</p>
+<p><strong>O que aparece:</strong> totais de clientes e equipamentos, chamados abertos e em atendimento, além de uma lista com chamado, cliente, equipamento, problema e status. “Voltar ao cliente” retorna ao Dashboard.</p>
+<p><strong>Na versão atual:</strong> os números vêm do banco. Alguns chamados antigos mostram “Não informado” no cliente porque esse vínculo não existia nos dados originais. Não há senha administrativa nem separação real de permissões; qualquer pessoa que entrou na demonstração consegue abrir esse painel.</p>
+<div class="speech"><b>Sugestão de fala</b>“O painel administrativo reúne os indicadores e os chamados para facilitar a visão geral do atendimento.”</div>
+</section>
+
+<section id="banco"><h2>10 Banco de dados</h2>
+<p><strong>Para que serve:</strong> guardar os registros usados no site. Pense nele como um conjunto de tabelas organizadas e conectadas: clientes, equipamentos, problemas, passos de solução e chamados.</p>
+<p><strong>Para a apresentação do grupo:</strong> vocês podem mostrar o banco separadamente no <strong>DBeaver</strong>, abrindo a conexão SQLite com o arquivo <code>database/orion.sqlite</code>. Não é necessário apresentar o banco dentro do site. Se o DBeaver já estiver aberto quando um chamado for criado, atualize a consulta para ver o novo registro.</p>
+<p><strong>Acesso separado:</strong> o banco não tem uma tela no menu do site. A consulta das tabelas para a apresentação deve ser feita no DBeaver. O site continua usando o banco para carregar informações e salvar chamados.</p>
+<p><strong>Palavras que podem aparecer:</strong> ID é o número que identifica um registro; PK é a identificação principal; FK é uma referência a outro registro; NULL significa que a informação não foi preenchida. “resumo_chamados” é uma consulta que reúne dados de mais de uma tabela, e não uma sexta tabela de cadastro.</p>
+<div class="speech"><b>Sugestão de fala</b>“O site é a parte que o usuário vê. O banco guarda as informações. Quando abrimos um chamado, podemos conferir o mesmo registro aqui no DBeaver.”</div>
+</section>
+
+<section id="roteiro"><h2>Roteiro para apresentar em grupo</h2>
+<p>Uma divisão possível é separar a explicação em quatro partes. Ajustem conforme o número de integrantes; cada pessoa pode estudar apenas as telas da sua parte e ensaiar a passagem para a próxima.</p>
+<table><thead><tr><th>Parte</th><th>O que mostrar</th><th>Ideia principal</th></tr></thead><tbody>
+<tr><td>1 Entrada e visão geral</td><td>Login e Dashboard</td><td>Explicar a proposta do sistema e seus indicadores.</td></tr>
+<tr><td>2 Equipamentos e orientação</td><td>Meus equipamentos, Detalhes, Base de conhecimento e Solução</td><td>Pesquisar uma máquina e demonstrar o caminho até a orientação.</td></tr>
+<tr><td>3 Pedido de atendimento</td><td>Abrir chamado e Meus chamados</td><td>Preencher o formulário e mostrar o registro salvo.</td></tr>
+<tr><td>4 Gestão e armazenamento</td><td>Painel administrativo e banco no DBeaver</td><td>Relacionar os indicadores e o novo chamado aos dados armazenados.</td></tr>
+</tbody></table>
+<h3>Sequência curta para ensaiar</h3>
+<ol><li>Entre no site com dados fictícios e explique o Dashboard.</li><li>Pesquise “Hunter” em “Meus equipamentos” e abra o primeiro equipamento.</li><li>Entre em “Problemas de pressão”, escolha o primeiro problema e mostre a solução.</li><li>Clique em “Não resolveu” e preencha um chamado de demonstração.</li><li>Mostre o novo registro em “Meus chamados”.</li><li>Abra o painel administrativo e, depois, confira o registro no DBeaver.</li></ol>
+<p><strong>Antes da apresentação:</strong> combinem quem vai controlar o mouse, quem vai falar em cada parte e quem ficará responsável por ligar o sistema. Ensaios que salvarem chamados acrescentarão registros ao banco; os totais podem mudar.</p>
+</section>
+
+<section id="duvidas"><h2>Perguntas que podem surgir</h2>
+<h3>Como ligar o site</h3>
+<p>No computador com o projeto já preparado, o integrante responsável abre o terminal na pasta do projeto e executa <code>npm.cmd run dev</code>. Depois, abre <code>http://localhost:5173</code> no navegador e mantém o terminal aberto. “Localhost” significa que o site está rodando naquele computador; esse endereço não é um link público para os demais integrantes.</p>
+<h3>O que acontece ao atualizar a página ou clicar em Sair</h3>
+<p>Atualizar a página mantém a tela indicada no endereço do navegador. Clicar em “Sair” retorna ao login. Nenhuma dessas ações apaga os chamados gravados. Nesta demonstração, não existe uma sessão de usuário autenticada.</p>
+<h3>Por que o site não abriu</h3>
+<p>Confira se o terminal continua aberto e se o servidor iniciou sem erros. Se aparecer uma mensagem de falha de conexão com o banco, peça ao integrante responsável para conferir o sistema e depois use “Tentar novamente”.</p>
+<h3>Precisamos explicar código</h3>
+<p>Não é necessário para demonstrar a interface. Basta entender o caminho: a pessoa preenche uma tela, o sistema recebe a solicitação, guarda o registro e o apresenta nas listas. Se perguntarem sobre a estrutura, expliquem que React monta as telas, Node.js recebe as solicitações e SQLite guarda os dados.</p>
+<h3>O sistema já está pronto para um cliente real</h3>
+<p>Ainda é um protótipo acadêmico. Para uso real, faltam autenticação, permissões por usuário, detalhes e soluções específicos para cada seleção, além da preparação da hospedagem e dos backups. O grupo pode apresentar as funções existentes sem afirmar que essas etapas já estão concluídas.</p>
+</section>
+<a class="back" href="#inicio">Voltar ao início do guia</a>
+</main>
+</body>
+</html>

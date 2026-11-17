@@ -1,13 +1,23 @@
 # Orion Service
 
-A entrada atual do site utiliza React e Vite. Para executar localmente:
+A entrada atual do site utiliza React, Vite, API Node.js e banco SQLite. Requer Node.js 24 ou superior. Para executar localmente:
 
 ```powershell
-npm ci
-npm run dev
+npm.cmd ci
+npm.cmd run dev
 ```
 
 Abra o endereço informado pelo Vite (normalmente http://localhost:5173). Para gerar a versão de produção, execute `npm run build`; para conferir o resultado, execute `npm run preview`.
+
+## Banco de dados para apresentação
+
+Abra `database/orion.sqlite` no DBeaver ou em outro visualizador SQLite para consultar tabelas, registros e relacionamentos. O banco não possui uma tela no menu do site. O formulário de chamados continua salvando diretamente no banco.
+
+- Banco: `database/orion.sqlite` (criado automaticamente e preservado entre execuções).
+- [Roteiro de apresentação e documentação](database/APRESENTACAO.md).
+- [Estrutura SQL](database/schema.sql) e [consultas de exemplo](database/consultas.sql).
+- `npm.cmd test` verifica integridade e persistência.
+- Para o preview de produção, execute também `npm.cmd run server` em outro terminal.
 
 As páginas HTML do protótipo CRM também estão preservadas neste repositório. A documentação abaixo se refere a esse protótipo anterior.
 
